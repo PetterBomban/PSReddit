@@ -47,6 +47,8 @@ Param (
     try {$response = (Invoke-RestMethod $uri -Headers @{"Authorization" = "bearer $accessToken"}) }
    catch{write-warning "Authentication failed, we should do something here"}
     
+   return $Respons
+
     $origin = New-Object -Type DateTime -ArgumentList 1970, 1, 1, 0, 0, 0, 0
     $created = $origin.AddSeconds($response.created)
 
